@@ -38,7 +38,7 @@ for file in tqdm.tqdm(gridT_files):
    for time in range(0,sim.time_counter.size):
        fig, ax = plt.subplots(1,1, figsize=(8,4), dpi=300)
             
-       kwags = {'vmin':0,'vmax':600,'cmap':cmocean.cm.deep, 'ylim':(150,410), 'xlim':(820,None) } # 200, None
+       kwags = {'vmin':0,'vmax':400,'cmap':cmocean.cm.thermal, 'ylim':(150,410), 'xlim':(820,None) } # 200, None
        sim[varname] = xr.where(sim[varname]==0, np.nan, sim[varname])
        sim[varname].isel(time_counter=time).plot(ax=ax, **kwags)
             
